@@ -33,9 +33,12 @@ Accept: */*
 Connection: close
 ```
 
-- Đây là **request** có phản hồi nhưng response mà nó trả về lại là status code là **403 Forbidden**. 
+- Đây là **request** có phản hồi nhưng response mà nó trả về lại là status code là **403 Forbidden**.
+
+![Screenshot from 2023-12-19 17-24-34](https://github.com/TAS-GuarD1an/Crawl_VietStock/assets/140484031/fc69220f-0b2d-4ca1-bfa2-f91a167ca105)
+
 - Có vẻ như hơi khó khăn trong việc kiểm tra xem tại sao lại trả về lỗi 403 nên mình đã quyết định cắm luôn **BurpSuite** vào browser để so sánh 2 request với nhau. À tới đây thì bắt đầu dùng tới FoxyProxy rùi. 
-- Sau một hồi cụ thể là 10 giây thì mình lấy cái request này để so sánh :v 
+- Sau một hồi cụ thể là 10 giây thì mình lấy cái request này để so sánh :v
 
 ```  
 GET / HTTP/1.1
@@ -52,6 +55,7 @@ Sec-Fetch-User: ?1
 Te: trailers
 Connection: close 
 ```
+![Screenshot from 2023-12-19 17-23-29](https://github.com/TAS-GuarD1an/Crawl_VietStock/assets/140484031/78c50a2b-16fe-4195-9e3c-31fce14bf0b2)
 
 - Đối với request này thì response vẫn trả về như bình thường với status code là 200. Vậy mình đã làm thế nào để phát hiện được với 1 request bình thường từ python sẽ bị trả về lỗi 403? Mình cũng khá đau đầu cho vấn đề này, nhưng sau đó thì mình đã nghĩ ra một cách, đó là mình sẽ thử xóa các header của request đi sau đó send cho server để xem response trả về như thế nào. 
   - Đầu tiên là **cookie**, response vẫn có status code là 200. Chứng tỏ cookie không ảnh hưởng gì tới request này cả. 
@@ -170,6 +174,8 @@ def plot_trading_data(stockcode, date, price):
 - Hàm này đơn giản và hiệu quả. Nó chịu trách nhiệm vẽ biểu đồ giá cổ phiếu dựa trên các thông tin về ngày và giá.
 - Nếu có dữ liệu (date và price không rỗng), hàm sẽ sử dụng thư viện matplotlib để vẽ biểu đồ đường. Các trục x và y được định dạng để thể hiện ngày và giá cổ phiếu, màu sắc và kiểu đường cũng được tùy chỉnh để tạo ra một biểu đồ rõ ràng và dễ đọc.
 - Nếu không có dữ liệu để vẽ, hàm sẽ thông báo rằng không có dữ liệu nào để vẽ biểu đồ cho mã cổ phiếu cụ thể đó.
+
+![Screenshot from 2023-12-31 18-42-36](https://github.com/TAS-GuarD1an/Crawl_VietStock/assets/140484031/1aca095d-cb46-46f5-9425-6ff412dd44b7)
 
 
 
