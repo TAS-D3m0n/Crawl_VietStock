@@ -79,7 +79,11 @@ Như vậy, mình đã xác định được rằng: Đối với vietstock thì
 
 ### Hàm get_trading_data
 
-- Đối với hàm này, mình chỉ thêm vào các thông số cần thiết của 1 requests cơ bản như **url**, **headers**, **data**. 
+- Hàm get_trading_data đóng vai trò quan trọng trong quy trình crawl dữ liệu từ trang VietStock. Mục tiêu của nó là tối ưu hóa việc gửi request để đảm bảo thu thập được thông tin giao dịch chính xác và chi tiết.
+- Trước hết, hàm này xác định thời điểm bắt đầu và kết thúc của chuỗi dữ liệu cần thu thập. Bằng cách sử dụng thư viện datetime, nó tạo ra **start_date** là ngày bắt đầu, tính từ thời điểm hiện tại và lùi lại 30 ngày. Sau đó, ngày này được định dạng vào chuỗi **start_date_str** để chuẩn bị cho việc đặt tham số trong request.
+- Đối với các thông số cần thiết cho request, như url, headers, và data, hàm này được thiết kế để đơn giản hóa quá trình gửi request. Các thông số này được xác định một cách tự động và có thể điều chỉnh linh hoạt theo mã cổ phiếu cần thu thập.
+- Trong quá trình xử lý request, hàm sử dụng thư viện requests để gửi POST request đến url của VietStock. **User-Agent** của request được đặt sao cho nó giống với request từ trình duyệt Firefox, đảm bảo tính nhất quán và tránh các chướng ngại về quyền truy cập.
+- Sau khi gửi request, hàm nhận phản hồi từ web server dưới dạng JSON và trả về cả response và response_json, tạo cơ sở dữ liệu quan trọng cho việc phân tích và theo dõi. 
 
 ```python
 def get_trading_data(stockcode):
@@ -115,12 +119,6 @@ def get_trading_data(stockcode):
     return response, response_json
 ```
 
-- Đối với 3 biến:
-  - **current_date**: để mình có thể theo dõi ngày hiện tại.
-  - **start_date**: đây là ngày bắt đầu thống kê 
-  - Mình sẽ bắt đầu lấy từ ngày **start_date** đến ngày **current_date** 
-  - **start_date_str**: biến này để mình định dạng lại ngày giờ như chúng ta thường thấy hàng ngày. 
-- Hàm trên sẽ lấy ra cho chúng ta cả data **JSON** nhờ vào **response_json = response.json()** 
 
 
 
