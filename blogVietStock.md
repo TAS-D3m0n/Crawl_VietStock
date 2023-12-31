@@ -187,22 +187,34 @@ def plot_trading_data(stockcode, date, price):
 
 ### Main 
 
+- Phần chương trình chính là nơi mà bạn có thể nhập mã cổ phiếu, xác định đường dẫn đến file lưu trữ, và thực hiện gọi các hàm để crawl, lưu trữ dữ liệu và vẽ biểu đồ.
+
 ```python
-if __name__  == "__main__":  
+if __name__  == "__main__":
+    #Xác định url của trang web
     url = 'https://finance.vietstock.vn/data/gettradingresult'
 
+    #Nhập mã cổ phiếu cần tra cứu 
     stockcode_input = input("Input stock code: ")
 
+    #Nhập đường dẫn lưu file csv
     output_file_path = "/YOUR_OUTPUT_PATH"
 
+    #Gọi hàm để crawl dữ liệu từ VietStock
     response, response_json = get_trading_data(stockcode_input)
+
+    #Chuẩn bị các mảng 1 chiều để lưu thông tin
     date = []
     price = []
+
+    #Kiểm tra dữ liệu
     if "Data" in response_json and len(response_json["Data"]) > 0:
+	#Lặp qua dữ liệu và lưu thông tin vào mảng 
         for i in range(len(response_json["Data"])):
             close_price = str(response_json["Data"][i]["ClosePrice"])
             trading_date_str = response_json["Data"][i]["TradingDate"]
 
+            #Xử lý định dạng ngày giờ
             timestamp_ms = int(trading_date_str[6:-2]) 
             trading_date_iso = datetime.utcfromtimestamp(timestamp_ms / 1000).strftime('%d/%m/%Y')
 
