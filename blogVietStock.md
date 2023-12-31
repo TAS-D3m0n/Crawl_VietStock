@@ -67,10 +67,8 @@ Như vậy, mình đã xác định được rằng: Đối với vietstock thì
 
 ### Hàm get_trading_data
 
-- Hàm get_trading_data đóng vai trò quan trọng trong quy trình crawl dữ liệu từ trang VietStock. Mục tiêu của nó là tối ưu hóa việc gửi request để đảm bảo thu thập được thông tin giao dịch chính xác và chi tiết.
+- Hàm get_trading_data đóng vai trò quan trọng trong quy trình crawl dữ liệu từ trang VietStock. Hàm này lấy ra dữ liệu trading trong 30 ngày của một mã cổ phiếu bất kỳ. 
 - Trước hết, hàm này xác định thời điểm bắt đầu và kết thúc của chuỗi dữ liệu cần thu thập. Bằng cách sử dụng thư viện datetime, nó tạo ra **start_date** là ngày bắt đầu, tính từ thời điểm hiện tại và lùi lại 30 ngày. Sau đó, ngày này được định dạng vào chuỗi **start_date_str** để chuẩn bị cho việc đặt tham số trong request.
-- Đối với các thông số cần thiết cho request, như url, headers, và data, hàm này được thiết kế để đơn giản hóa quá trình gửi request. Các thông số này được xác định một cách tự động và có thể điều chỉnh linh hoạt theo mã cổ phiếu cần thu thập.
-- Trong quá trình xử lý request, hàm sử dụng thư viện requests để gửi POST request đến url của VietStock. **User-Agent** của request được đặt sao cho nó giống với request từ trình duyệt Firefox, đảm bảo tính nhất quán và tránh các chướng ngại về quyền truy cập.
 - Sau khi gửi request, hàm nhận phản hồi từ web server dưới dạng JSON và trả về cả response và response_json, tạo cơ sở dữ liệu quan trọng cho việc phân tích và theo dõi. 
 
 ```python
