@@ -121,7 +121,6 @@ def get_trading_data(stockcode):
 
 
 
-
 ### Hàm save_trading_to_csv
 
 - Trong hàm này mình sử dụng 2 tham chiếu đầu vào là **response_json** và **output_path**.
@@ -180,8 +179,9 @@ def plot_trading_data(stockcode, date, price):
         print(f"No data to plot for stock code {stockcode}")
 ```
 
-- Trong hàm này, mình không có gì để lưu ý, vì đơn giản nó chỉ là module matplotlib để vẽ biểu đồ rất dễ dùng. 
-- Ở đây mình dùng 3 tham chiếu đầu vào, **stockcode** và 2 tham số khác là **date** và **price**, 2 tham số này mình sẽ khởi tạo là mảng 1 chiều rỗng để có thể lưu được thông tin vào mảng 1 cách dễ dàng hơn. 
+- Hàm này đơn giản và hiệu quả. Nó chịu trách nhiệm vẽ biểu đồ giá cổ phiếu dựa trên các thông tin về ngày và giá.
+- Nếu có dữ liệu (date và price không rỗng), hàm sẽ sử dụng thư viện matplotlib để vẽ biểu đồ đường. Các trục x và y được định dạng để thể hiện ngày và giá cổ phiếu, màu sắc và kiểu đường cũng được tùy chỉnh để tạo ra một biểu đồ rõ ràng và dễ đọc.
+- Nếu không có dữ liệu để vẽ, hàm sẽ thông báo rằng không có dữ liệu nào để vẽ biểu đồ cho mã cổ phiếu cụ thể đó.
 
 
 
