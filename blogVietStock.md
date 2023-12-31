@@ -75,9 +75,6 @@ Như vậy, mình đã xác định được rằng: Đối với vietstock thì
 
 ![Screenshot from 2023-12-31 18-49-40](https://github.com/TAS-GuarD1an/Crawl_VietStock/assets/140484031/459e83eb-fb7a-48c0-bcca-dc59c2f4d572)
 
-- Trước hết, hàm này xác định thời điểm bắt đầu và kết thúc của chuỗi dữ liệu cần thu thập. Bằng cách sử dụng thư viện datetime, nó tạo ra **start_date** là ngày bắt đầu, tính từ thời điểm hiện tại và lùi lại 30 ngày. Sau đó, ngày này được định dạng vào chuỗi **start_date_str** để chuẩn bị cho việc đặt tham số trong request.
-- Sau khi gửi request, hàm nhận phản hồi từ web server dưới dạng JSON và trả về cả response và response_json, tạo cơ sở dữ liệu quan trọng cho việc phân tích và theo dõi. 
-
 ```python
 def get_trading_data(stockcode):
     current_date = datetime.now()
@@ -111,6 +108,9 @@ def get_trading_data(stockcode):
 
     return response, response_json
 ```
+
+- Trước hết, hàm này xác định thời điểm bắt đầu và kết thúc của chuỗi dữ liệu cần thu thập. Bằng cách sử dụng thư viện datetime, nó tạo ra **start_date** là ngày bắt đầu, tính từ thời điểm hiện tại và lùi lại 30 ngày. Sau đó, ngày này được định dạng vào chuỗi **start_date_str** để chuẩn bị cho việc đặt tham số trong request.
+- Sau khi gửi request, hàm nhận phản hồi từ web server dưới dạng JSON và trả về cả response và response_json, tạo cơ sở dữ liệu quan trọng cho việc phân tích và theo dõi. 
 
 
 
