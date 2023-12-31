@@ -4,19 +4,7 @@
 
 ## Mở đầu 
 
-Khi đi vào trang https://finance.vietstock.vn/ để có thể theo dõi giá của các cổ phiếu đang thịnh hành, mình sẽ gọi theo trên website là **top 10 cổ phiếu**. 
-
-**Ví dụ:** 
-Hôm nay mình muốn xem thông tin giá bán của cổ phiếu tên HPG, thì chắc chắn ở hình ảnh trên đã đưa ra thông tin về giá của cổ phiếu HPG trong ngày hôm nay là **27,950**. 
-
-**Vậy chẳng hạn, mình muốn xem các ngày khác và so sánh với các ngày với nhau thì sao? Hay mình muốn xem cả những cổ phiếu khác ngoài top 10 cổ phiếu nữa thì phải làm như thế nào? ** 
-
-Vấn đề nằm ở đây, khi mình muốn xem giá của HPG những ngày trước đó thì mình mất khá nhiều thao tác 
-
-	- Mình phải click vào cổ phiếu HPG trong bảng top 10 cổ phiếu. 
-	- Sau đó mình phải chọn ngày bắt đầu và ngày kết thúc để xem giá của các ngày đó. 
-
-**Chẳng hạn mình là người lười thao tác và mình muốn thứ gì đó đơn giản hơn việc sử dụng website này thì sao nhỉ? Chắc là sẽ có cách. Và mình đã thực sự tìm được giải pháp cho việc này. Cùng theo dõi xem mình đã làm như thế nào ha! ** 
+Trong cuộc đua không ngừng của thị trường chứng khoán, sức mạnh nằm ở sự thông tin chính xác và kịp thời. Trang web VietStock là một kho tàng dữ liệu về giá cổ phiếu, nhưng làm thế nào để khai thác hết khả năng của nó một cách hiệu quả? Trong hướng dẫn này, chúng ta sẽ cùng nhau tạo ra một công cụ Python linh hoạt, giúp tự động hóa quá trình crawl dữ liệu từ VietStock và thậm chí làm phong phú thêm với việc phân tích dữ liệu.
 
 
 
