@@ -141,7 +141,7 @@ def save_trading_data_to_csv(response_json, output_filepath):
 - Trước hết, hàm kiểm tra xem trong **response_json** có chứa từ khóa **"Data"** hay không và liệu **"Data"** đó có dữ liệu hay không. Nếu có, chúng ta bắt đầu quá trình lưu trữ.
 - Hàm mở file CSV theo đường dẫn được chỉ định trong **output_filepath**. Nếu file đã tồn tại, chúng ta chọn chế độ **'a'** để tiếp tục viết vào cuối file mà không ghi đè lên dữ liệu cũ.
 - Tiếp theo, chúng ta định nghĩa các trường fieldnames trong file CSV, bao gồm **'StockCode', 'Trading Date', 'Close Price'**. Điều này giúp file csv có cái nhìn rõ ràng và bố cục hơn. 
-- Chúng ta sử dụng **csv.DictWriter** để ghi dữ liệu vào file CSV dựa trên các trường đã định nghĩa. Đầu tiên, ghi header bằng cách sử dụng **csv_writer.writeheader()**.
+- Sử dụng **csv.DictWriter** để ghi dữ liệu vào file CSV dựa trên các trường đã định nghĩa. Đầu tiên, ghi header bằng cách sử dụng **csv_writer.writeheader()**.
 - Tiếp đến là vòng **for**, mình sử dụng vòng **for** này với mục đích duyệt tất cả các phần tử có trong **response_json["Data"]**. Và đương nhiên, khi mình đọc response thì mình có đọc được data json mà web server trả về, trong đó có các chỉ số mình cần lấy ra ví dụ như: **StockCode, ClosePrice, TradingDate**. 
 - Từ đó mình có thể lấy và lưu các trường thông tin chỉ số đó vào trong file csv của mình để có thể tiện theo dõi. 
 - Các câu lệnh khác, mình chỉ dùng để format lại thời gian sao cho đúng định dạng thường ngày mà chúng ta thấy, cũng như 1 số câu lệnh in ra thông báo mà thôi.
