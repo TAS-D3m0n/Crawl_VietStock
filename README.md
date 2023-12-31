@@ -178,7 +178,7 @@ def plot_trading_data(stockcode, date, price):
 - Nếu có dữ liệu (date và price không rỗng), hàm sẽ sử dụng thư viện matplotlib để vẽ biểu đồ đường. Các trục x và y được định dạng để thể hiện ngày và giá cổ phiếu, màu sắc và kiểu đường cũng được tùy chỉnh để tạo ra một biểu đồ rõ ràng và dễ đọc.
 - Nếu không có dữ liệu để vẽ, hàm sẽ thông báo rằng không có dữ liệu nào để vẽ biểu đồ cho mã cổ phiếu cụ thể đó.
 
-![Screenshot from 2023-12-31 21-08-21](https://github.com/TAS-GuarD1an/Crawl_VietStock/assets/140484031/e7561c99-6a76-4146-8603-5d77ad2111ca)
+![Screenshot from 2023-12-31 21-38-15](https://github.com/TAS-GuarD1an/Crawl_VietStock/assets/140484031/d99b43a4-4069-433c-9d0c-31e853f3e150)
 
 
 
